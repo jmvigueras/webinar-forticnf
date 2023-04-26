@@ -1,6 +1,14 @@
 # IaC Terraform code to support Fortgate CNF webinar
 ## Introduction
-This project gives an example of a scenario using diferent AWS services and [Fortigate CNF](https://fortigatecnf.com/admin-portal/authentication/login), that is Fortinet FWaaS in AWS, to control and inspect traffic. Firtsly, one VPC with an GWLB endpoints to forward traffic to Fortigate CNF instance for traffic Inbound-Outbound and inter-subnet. Secondly, a complete scenario with a VPC inspection to control traffic between VPCs attached to TGW. Thirdly, an example of a SDWAN scenario with Fortigate as Cloud On-ramp integrated in a SDWAN customer network. 
+This project gives an example of a scenario using diferent AWS services and [Fortigate CNF](https://fortigatecnf.com/admin-portal/authentication/login), that is Fortinet FWaaS in AWS, to control and inspect traffic. Firtsly, one VPC with an GWLB endpoints to forward traffic to Fortigate CNF instance for traffic Inbound-Outbound and inter-subnet. Secondly, a complete scenario with a VPC inspection to control traffic between VPCs attached to TGW. Thirdly, an example of a SDWAN scenario with Fortigate as Cloud On-ramp integrated in a SDWAN customer network.
+
+## Diagram solution
+
+Inbound-Outboung and VPC East-West traffic inspection with Fortigate CNF FWaaS
+![VPC diagram](images/image1.png)
+
+SDWAN full scenario
+![SDWAN](images/image2.png)
 
 ## Requirements
 * [Terraform](https://learn.hashicorp.com/terraform/getting-started/install.html) >= 1.0.0
@@ -11,14 +19,6 @@ This project gives an example of a scenario using diferent AWS services and [For
 - Terraform Provider hashicorp/aws v4.39.0
 - Terraform Provider hashicorp/local v2.2.3
 - Terraform Provider hashicorp/tls v4.0.4
-
-## Diagram solution
-
-Inbound-Outboung and VPC East-West traffic inspection with Fortigate CNF FWaaS
-![VPC diagram](images/image1.png)
-
-SDWAN full scenario
-![SDWAN](images/image2.png)
 
 ## Deployment
 * Clone the repository.
