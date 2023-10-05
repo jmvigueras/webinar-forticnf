@@ -7,7 +7,7 @@ output "fgt_onramp" {
     username     = "admin"
     fgt-1_pass   = module.fgt.fgt_active_id
     fgt-2_pass   = local.sdwan_fgt_passive ? module.fgt.fgt_passive_id[0] : ""
-    admin_cidr   = "${chomp(data.http.my-public-ip.body)}/32"
+    admin_cidr   = "${chomp(data.http.my-public-ip.response_body)}/32"
     api_key      = module.fgt_config.api_key
   }
 }
@@ -20,7 +20,7 @@ output "fgt_hub" {
     username     = "admin"
     fgt-1_pass   = module.fgt_hub.fgt_active_id
     fgt-2_pass   = local.hub_fgt_passive ? module.fgt_hub.fgt_passive_id[0] : ""
-    admin_cidr   = "${chomp(data.http.my-public-ip.body)}/32"
+    admin_cidr   = "${chomp(data.http.my-public-ip.response_body)}/32"
     api_key      = module.fgt_hub_config.api_key
   }
 }
@@ -57,8 +57,8 @@ output "vm_hub" {
 
 output "UPDATE_routes_to_CNF_GWLBe" {
   value = {
-    vpc_cnf_tgw  = module.fgt_cnf_vpc.routes_ids["tgw"]
-    vpc_n-s_vm   = module.spoke_vpc_n-s.routes_ids["vm"]
-    vpc_n-s_igw  = module.spoke_vpc_n-s.routes_ids["igw"]
+    vpc_cnf_tgw = module.fgt_cnf_vpc.routes_ids["tgw"]
+    vpc_n-s_vm  = module.spoke_vpc_n-s.routes_ids["vm"]
+    vpc_n-s_igw = module.spoke_vpc_n-s.routes_ids["igw"]
   }
 }
